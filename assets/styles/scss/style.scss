@@ -1,0 +1,59 @@
+@import "normalize";
+@import "layout";
+@import "fonts";
+@import "variables";
+@import "header";
+@import "portfolio";
+@import "team";
+@import "contact";
+@import "stub";
+
+
+*,
+*:before,
+*:after{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+body{
+  font-family: $font-primary;
+  color: $color-primary;
+  font-size: 14px;
+}
+
+.ba-box{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ba-section__header{
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.ba-section{
+  color: $color-primary--dark;
+  text-align: center;
+
+  &__title{
+    color: $color-primary-header--dark;
+    font-family: $font-header;
+    font-size: 20px;
+    line-height: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  &__description{
+    padding-top: 40px;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.05em;
+  }
+}
