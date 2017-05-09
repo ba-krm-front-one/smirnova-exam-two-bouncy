@@ -2,20 +2,22 @@
     function initMap() {
     let map;
     let mapContainer = document.querySelector('#map');
-    let mapCoordinates = {lat: 52.525595, lng: 13.393085};
+    let mapCoordinates = {lat: 48.734202, lng: 37.579347};
     let mapOptions = {
         center: mapCoordinates,
-        zoom: 14,
-        disableDefaultUI: true
+        zoom: 15,
+        disableDefaultUI: true,
+        scrollwheel:  false
     };
 
     let infoWindowText = document.querySelector('#marker').innerHTML;
+
     map = new google.maps.Map(mapContainer, mapOptions);
 
     let marker = new google.maps.Marker({
         position: mapCoordinates,
         map: map,
-        icon: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-location.png'
+        icon: "assets/images/marker.png"
     });
 
     let infowindow = new google.maps.InfoWindow({
@@ -26,6 +28,11 @@
         infowindow.open(map, marker);
     });
 
+        google.maps.event.addDomListener(window, "resize", function() {
+            let center = map.getCenter();
+            google.maps.event.trigger(map, "resize");
+            map.setCenter(center);
+        });
 
 }
 

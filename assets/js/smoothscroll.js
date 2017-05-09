@@ -29,13 +29,25 @@
         };
     }());
 
+
     document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.ba-header__link').forEach((scrollLink) => {
+        document.querySelectorAll('.ba-menu__item').forEach((scrollLink) => {
+            scrollLink.addEventListener('click', (event) => {
+                let anchor = scrollLink.querySelector('.ba-menu__link').getAttribute('href');
+                let anchorTo = document.querySelector(anchor);
+                event.preventDefault();
+                smoothScrollTo(anchorTo.offsetTop, 1000);
+            });
+        })
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.ba-link').forEach((scrollLink) => {
             scrollLink.addEventListener('click', (event) => {
                 let anchor = scrollLink.getAttribute('href');
                 let anchorTo = document.querySelector(anchor);
                 event.preventDefault();
-                smoothScrollTo(anchorTo.offsetTop, 2000);
+                smoothScrollTo(anchorTo.offsetTop, 1000);
             });
         })
     });

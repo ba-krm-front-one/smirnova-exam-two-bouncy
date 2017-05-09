@@ -3,8 +3,9 @@
         let grid = document.querySelector('.ba-grid');
         let iso = new Isotope( grid, {
             itemSelector: '.ba-grid-item',
+
             masonry: {
-                columnWidth: 50,
+                columnWidth: 30.5,
                 gutter: 10,
                 horizontalOrder: true,
                 fitWidth: true
@@ -26,6 +27,23 @@
             }
             this.classList.add('ba-portfolio__item--active');
         };
+
+
+
+        let resizeItem = function (event) {
+
+            this.classList.add('ba-grid-item--gigante');
+            iso.layout();
+            setTimeout(normalItem, 1000, this);
+        };
+
+        let normalItem = function (image) {
+            image.classList.remove('ba-grid-item--gigante');
+        };
+
+        document.querySelectorAll('.ba-grid-item').forEach(item => {
+            item.addEventListener('click', resizeItem);
+        });
 
 
         document.querySelectorAll('.ba-portfolio__item').forEach(filterBtn => {
